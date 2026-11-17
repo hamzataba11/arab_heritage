@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="رحلة عربية تفاعلية بين أبرز المواقع الأثرية، مع إمكانية تغيير نوع الخط العربي وحجمه." />
+  <title>أثر | ذاكرة الحضارة العربية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --font:'Cairo',sans-serif; --font-scale:1; --bg:#f9f5ee; --paper:#fffdf8; --ink:#242923; --muted:#6b7067; --green:#163d35; --green-2:#285c4e; --gold:#c39a54; --line:#e7dfd1; --shadow:0 17px 45px rgba(33,38,29,.08); }
+    * {box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--font);font-size:calc(16px * var(--font-scale));color:var(--ink);background:var(--bg);line-height:1.9;transition:font-family .2s ease}
+    button,select,input{font:inherit}
+    button{cursor:pointer}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px}
+    .logo{display:flex;align-items:center;gap:10px;font-size:1.4em;font-weight:800;color:var(--green);white-space:nowrap}
+    .logo-mark{display:grid;place-items:center;width:41px;height:41px;color:#fff;background:var(--green);border-radius:12px;font-size:1.2em}
+    .links{display:flex;align-items:center;gap:25px;font-weight:700;font-size:.88em}
+    .links a:hover{color:#b48337}
+    .tools{display:flex;align-items:center;gap:8px}
+    .font-select{max-width:160px;background:#fff;border:1px solid #dcd1bd;border-radius:11px;padding:8px 10px;color:var(--green)}
+    .icon-btn{background:#f2ecdf;color:var(--green);border:1px solid #ded4c1;border-radius:11px;padding:8px 12px;min-height:43px;font-weight:800;white-space:nowrap}
+    .icon-btn:hover,.font-select:hover{background:#e9dec9}
+    .hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(circle at 14% 22%,rgba(199,151,77,.30),transparent 26%),linear-gradient(115deg,#12342f 10%,#1f5145 58%,#315a48 100%);padding:95px 0 112px}
+    .hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(234,206,151,.19);width:400px;height:400px;border-radius:48%;transform:rotate(33deg);left:-120px;top:-150px}
+    .hero:after{width:230px;height:230px;left:150px;top:90px;border-color:rgba(234,206,151,.12)}
+    .hero-layout{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-block;font-size:.8em;border:1px solid rgba(245,213,159,.5);color:#f2d5a0;border-radius:30px;padding:4px 15px;margin-bottom:20px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.5em,5vw,4.6em);line-height:1.35;margin-bottom:19px;font-weight:800}
+    h1 em{font-style:normal;color:#e9c48a}
+    .hero p{color:#e0e9e2;max-width:610px;font-size:1.06em}
+    .main-cta{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#1d2f28;font-weight:800;padding:11px 24px;border-radius:12px;margin-top:12px}
+    .main-cta:hover{background:#e2b76e}
+    .hero-art{min-height:325px;display:flex;align-items:center;justify-content:center;position:relative}
+    .arch{width:min(320px,100%);height:300px;border:21px solid #d6a968;border-bottom-width:24px;border-radius:160px 160px 10px 10px;box-shadow:0 0 0 12px rgba(225,187,125,.13),inset 0 -95px 0 rgba(7,28,24,.42);position:relative;background:linear-gradient(165deg,#d7b77e 0%,#b17e4b 35%,#31554a 36%,#12362d 100%)}
+    .arch:before{content:"✦";position:absolute;font-size:5.2em;left:50%;top:50%;transform:translate(-50%,-50%);color:#f3d39a;text-shadow:0 4px 30px #402c19}
+    .arch:after{content:"";position:absolute;inset:auto -38px -23px;border-bottom:9px solid #bc8c52}
+    .section{padding:75px 0}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
+    .kicker{color:#ae7937;font-weight:800;font-size:.86em;letter-spacing:.03em}
+    h2{font-size:clamp(1.8em,3vw,2.4em);color:var(--green);line-height:1.45;margin-bottom:8px}
+    .section-top p{margin:0;color:var(--muted)}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+    .filter{padding:7px 20px;border:1px solid #dcd2c0;border-radius:28px;background:transparent;color:#56665d;font-size:.88em;font-weight:700}
+    .filter.active,.filter:hover{background:var(--green);color:#fff;border-color:var(--green)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(33,38,29,.13)}
+    .card[hidden]{display:none}
+    .card-visual{height:177px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .card-visual:before{content:"";position:absolute;inset:20px;border:1px solid rgba(255,255,255,.3);border-radius:100px 100px 4px 4px}
+    .card-visual span{font-size:5.0em;filter:drop-shadow(0 12px 9px rgba(0,0,0,.2));z-index:1}
+    .sand{background:linear-gradient(130deg,#8f6040,#d8b278)}
+    .blue{background:linear-gradient(130deg,#1e5263,#84a8aa)}
+    .rose{background:linear-gradient(130deg,#864e47,#c99678)}
+    .olive{background:linear-gradient(130deg,#3a5745,#93aa7c)}
+    .purple{background:linear-gradient(130deg,#635066,#b99caa)}
+    .gold{background:linear-gradient(130deg,#78633c,#c3a972)}
+    .card-body{padding:23px 24px 26px}
+    .place{font-size:.78em;font-weight:800;color:#a5753d}
+    .card h3{font-size:1.22em;color:var(--green);margin:5px 0 9px}
+    .card p{font-size:.89em;color:#616a60;margin:0}
+    .fact-band{background:#efe6d6;padding:55px 0}
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center}
+    .fact strong{display:block;color:var(--green);font-size:2em;line-height:1.4}
+    .fact span{color:#657064;font-size:.92em}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .feature-card{background:#fffdf7;border-radius:22px;border:1px solid var(--line);padding:35px;box-shadow:var(--shadow)}
+    .sample{font-size:2em;color:var(--green);background:#f3eee5;border:1px dashed #cdbb9d;border-radius:15px;text-align:center;padding:25px 16px;margin:18px 0;min-height:118px}
+    .help{font-size:.84em;color:var(--muted);margin:0}
+    footer{background:#133a32;color:#deeadf;text-align:center;padding:28px 16px;font-size:.87em}
+    footer strong{color:#f1c989}
+    :focus-visible{outline:3px solid #cb984f;outline-offset:3px}
+    @media(max-width:1050px){.links{display:none}.hero-layout{gap:20px}.hero-art{transform:scale(.85)}}
+    @media(max-width:750px){.nav-inner{flex-wrap:wrap;justify-content:center;padding:12px 0;gap:10px}.tools{justify-content:center;flex-wrap:wrap}.hero{padding:55px 0 68px}.hero-layout{grid-template-columns:1fr}.hero-art{min-height:210px;transform:scale(.7);margin:-35px 0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feature{grid-template-columns:1fr}.section{padding:55px 0}.facts{gap:8px}}
+    @media(max-width:520px){.wrap{width:min(100% - 28px,1180px)}.grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.font-select{max-width:140px}.section-top{display:block}.hero-art{display:none}.feature-card{padding:20px}.nav{position:relative}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#home" aria-label="العودة إلى الصفحة الرئيسية"><span class="logo-mark">۞</span> أَثَر</a>
+      <nav class="links" aria-label="التنقل الرئيسي"><a href="#home">الرئيسية</a><a href="#landmarks">المواقع الأثرية</a><a href="#typography">الخط العربي</a></nav>
+      <div class="tools" aria-label="أدوات تخصيص الخط">
+        <label for="fontChoice" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">نوع الخط</label>
+        <select id="fontChoice" class="font-select" title="اختر نوع الخط العربي">
+          <option value="Cairo">القاهرة (Cairo)</option>
+          <option value="Amiri">أميري (Amiri)</option>
+          <option value="Aref Ruqaa">خط الرقعة</option>
+          <option value="Reem Kufi">كوفي (Reem Kufi)</option>
+          <option value="Tajawal">تجوال (Tajawal)</option>
+          <option value="Noto Naskh Arabic">خط النسخ</option>
+        </select>
+        <button type="button" class="icon-btn" id="nextFont" title="التبديل إلى الخط التالي">تغيير الخط ↻</button>
+        <button type="button" class="icon-btn" id="smaller" aria-label="تصغير الخط">أ−</button>
+        <button type="button" class="icon-btn" id="larger" aria-label="تكبير الخط">أ+</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="wrap hero-layout">
+        <div><span class="eyebrow">✦ رحلة إلى جذور التاريخ</span><h1>حكايات من <em>حجر</em><br>وذاكرة لا تغيب</h1><p>من تدمر إلى البتراء، ومن قرطاج إلى صنعاء القديمة، نأخذك في جولة بين معالم تركت بصمتها في تاريخ المنطقة العربية.</p><a href="#landmarks" class="main-cta">استكشف المواقع الأثرية ←</a></div>
+        <div class="hero-art" aria-hidden="true"><div class="arch"></div></div>
+      </div>
+    </section>
+
+    <section id="landmarks" class="section">
+      <div class="wrap">
+        <div class="section-top"><div><span class="kicker">كنوز من الماضي</span><h2>محطات في التاريخ</h2><p>اختر المنطقة التي ترغب في استكشاف معالمها.</p></div></div>
+        <div class="filters" role="group" aria-label="تصفية المواقع حسب المنطقة"><button class="filter active" data-filter="all" aria-pressed="true">جميع المواقع</button><button class="filter" data-filter="levant" aria-pressed="false">بلاد الشام</button><button class="filter" data-filter="north" aria-pressed="false">شمال أفريقيا</button><button class="filter" data-filter="peninsula" aria-pressed="false">شبه الجزيرة العربية</button></div>
+        <div class="grid" id="cards">
+          <article class="card" data-region="levant"><div class="card-visual sand" aria-hidden="true"><span>🏛️</span></div><div class="card-body"><span class="place">سوريا • بلاد الشام</span><h3>مدينة تدمر</h3><p>مدينة أثرية في قلب البادية السورية، تشتهر بأعمدتها وشواهدها المعمارية التي تروي تاريخًا تجاريًا وثقافيًا غنيًا.</p></div></article>
+          <article class="card" data-region="levant"><div class="card-visual rose" aria-hidden="true"><span>🏜️</span></div><div class="card-body"><span class="place">الأردن • بلاد الشام</span><h3>مدينة البتراء</h3><p>مدينة نبطية شهيرة نُحتت واجهاتها في الصخور الوردية، وتُعد من أبرز المعالم الأثرية في المنطقة.</p></div></article>
+          <article class="card" data-region="north"><div class="card-visual blue" aria-hidden="true"><span>⚓</span></div><div class="card-body"><span class="place">تونس • شمال أفريقيا</span><h3>قرطاج الأثرية</h3><p>موقع تاريخي على ساحل البحر المتوسط، يحمل آثار حضارات متعاقبة تركت بصماتها عبر القرون.</p></div></article>
+          <article class="card" data-region="peninsula"><div class="card-visual olive" aria-hidden="true"><span>🏘️</span></div><div class="card-body"><span class="place">اليمن • شبه الجزيرة العربية</span><h3>صنعاء القديمة</h3><p>مدينة تاريخية معروفة بمبانيها الطينية والزخارف الهندسية والنوافذ المميزة في عمارتها التقليدية.</p></div></article>
+          <article class="card" data-region="north"><div class="card-visual gold" aria-hidden="true"><span>🕌</span></div><div class="card-body"><span class="place">المغرب • شمال أفريقيا</span><h3>مدينة فاس العتيقة</h3><p>تتميز بأزقتها وأسواقها ومدارسها ومعالمها التي تعكس ثراء التراث العمراني والحرف التقليدية.</p></div></article>
+          <article class="card" data-region="peninsula"><div class="card-visual purple" aria-hidden="true"><span>⛰️</span></div><div class="card-body"><span class="place">السعودية • شبه الجزيرة العربية</span><h3>الحِجر (مدائن صالح)</h3><p>موقع أثري يضم واجهات مقابر منحوتة في الصخور، ويرتبط بتاريخ الحضارة النبطية في شمال غرب الجزيرة العربية.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="fact-band"><div class="wrap facts"><div class="fact"><strong>6</strong><span>محطات تاريخية للاستكشاف</span></div><div class="fact"><strong>3</strong><span>مناطق جغرافية</span></div><div class="fact"><strong>6</strong><span>أنماط خطوط عربية متاحة</span></div></div></aside>
+
+    <section id="typography" class="section"><div class="wrap feature"><div><span class="kicker">الموقع بأسلوبك</span><h2>غيّر الخط العربي كما تحب</h2><p>يمكنك اختيار خط من القائمة في أعلى الصفحة، أو الضغط على زر «تغيير الخط» للتنقل بين الخطوط. تستطيع أيضًا تكبير النص أو تصغيره، وسيحتفظ المتصفح باختيارك عند زيارتك التالية.</p><p class="help">ملاحظة: تحتاج إلى اتصال بالإنترنت عند فتح الموقع لأول مرة لتحميل خطوط Google Fonts. تتوفر خطوط بديلة عند عدم الاتصال.</p></div><div class="feature-card"><span class="kicker">معاينة مباشرة</span><div class="sample">الخط العربي فنّ وهوية وتاريخ</div><p class="help">جرّب أميري، الرقعة، الكوفي، القاهرة، تجوال والنسخ؛ ستتغير الكتابة في كامل الصفحة.</p></div></div></section>
+  </main>
+  <footer><strong>أَثَر</strong> — مشروع تعريفي تفاعلي للاحتفاء بالمواقع الأثرية والتراث في المنطقة العربية.</footer>
+
+  <script>
+    const fonts = [
+      { name: 'Cairo', family: "'Cairo', sans-serif" },
+      { name: 'Amiri', family: "'Amiri', serif" },
+      { name: 'Aref Ruqaa', family: "'Aref Ruqaa', serif" },
+      { name: 'Reem Kufi', family: "'Reem Kufi', sans-serif" },
+      { name: 'Tajawal', family: "'Tajawal', sans-serif" },
+      { name: 'Noto Naskh Arabic', family: "'Noto Naskh Arabic', serif" }
+    ];
+    const fontChoice = document.getElementById('fontChoice');
+    const savedFont = localStorage.getItem('athar-font');
+    const savedScale = Number(localStorage.getItem('athar-scale'));
+    let scale = savedScale >= 0.85 && savedScale <= 1.35 ? savedScale : 1;
+
+    function changeFont(name) {
+      const chosen = fonts.find(font => font.name === name) || fonts[0];
+      document.documentElement.style.setProperty('--font', chosen.family);
+      fontChoice.value = chosen.name;
+      localStorage.setItem('athar-font', chosen.name);
+    }
+    function changeScale(nextScale) {
+      scale = Math.max(0.85, Math.min(1.35, Math.round(nextScale * 100) / 100));
+      document.documentElement.style.setProperty('--font-scale', scale);
+      localStorage.setItem('athar-scale', String(scale));
+    }
+    changeFont(savedFont || 'Cairo');
+    changeScale(scale);
+    fontChoice.addEventListener('change', event => changeFont(event.target.value));
+    document.getElementById('nextFont').addEventListener('click', () => {
+      const index = fonts.findIndex(font => font.name === fontChoice.value);
+      changeFont(fonts[(index + 1) % fonts.length].name);
+    });
+    document.getElementById('larger').addEventListener('click', () => changeScale(scale + 0.1));
+    document.getElementById('smaller').addEventListener('click', () => changeScale(scale - 0.1));
+
+    document.querySelectorAll('.filter').forEach(button => {
+      button.addEventListener('click', () => {
+        const region = button.dataset.filter;
+        document.querySelectorAll('.filter').forEach(item => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        document.querySelectorAll('.card').forEach(card => {
+          card.hidden = region !== 'all' && card.dataset.region !== region;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
